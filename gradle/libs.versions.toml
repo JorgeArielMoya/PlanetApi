@@ -17,6 +17,7 @@ composeBom = "2026.04.01"
 room="2.8.4"
 moshiKotlin = "1.15.2"
 converterMoshi = "3.0.0"
+coil = "2.6.0"
 
 navigationCompose = "2.9.8"
 kotlinSerializationJson = "1.11.0"
@@ -59,6 +60,7 @@ retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converterMoshi" }
 squareup-moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiKotlin" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
