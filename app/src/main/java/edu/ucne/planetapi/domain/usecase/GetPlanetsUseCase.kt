@@ -1,5 +1,8 @@
 package edu.ucne.planetapi.domain.usecase
 
+import edu.ucne.planetapi.domain.repository.PlanetRepository
+import jakarta.inject.Inject
+
 class GetPlanetsUseCase @Inject constructor(
     private val repository: PlanetRepository
 ) {
