@@ -104,4 +104,11 @@ dependencies {
 
     // Room Testing
     testImplementation("androidx.room:room-testing:2.8.4")
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.squareup.moshi.kotlin)
+    implementation(libs.converter.moshi)
 }
