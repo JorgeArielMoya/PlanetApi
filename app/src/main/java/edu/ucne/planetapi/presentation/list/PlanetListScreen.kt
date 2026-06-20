@@ -65,29 +65,15 @@ fun PlanetListBodyScreen(
                 .padding(padding)
                 .fillMaxSize()
         ) {
-            ElevatedCard(
+            OutlinedTextField(
+                value = state.filterName,
+                onValueChange = { onEvent(PlanetListEvent.UpdateName(it)) },
+                label = { Text("Buscar por nombre") },
                 modifier = Modifier
-                    .padding(16.dp)
                     .fillMaxWidth()
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    OutlinedTextField(
-                        value = state.filterName,
-                        onValueChange = { onEvent(PlanetListEvent.UpdateName(it)) },
-                        label = { Text("Nombre (ej. Namek)") },
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                    Button(
-                        onClick = { onEvent(PlanetListEvent.Search) },
-                        modifier = Modifier.align(Alignment.End)
-                    ) {
-                        Text("Buscar")
-                    }
-                }
-            }
+                    .padding(16.dp),
+                singleLine = true
+            )
 
             if (state.isLoading) {
                 CircularProgressIndicator(
@@ -104,7 +90,7 @@ fun PlanetListBodyScreen(
             }
 
             LazyColumn(contentPadding = PaddingValues(16.dp)) {
-                items(state.planets) { planet ->
+                items(state.planetsFiltradas) { planet ->
                     PlanetItem(
                         planet = planet,
                         onClick = { onPlanetClick(planet.id) }
