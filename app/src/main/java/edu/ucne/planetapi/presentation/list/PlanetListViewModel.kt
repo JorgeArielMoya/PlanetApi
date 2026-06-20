@@ -26,22 +26,31 @@ class PlanetListViewModel @Inject constructor(
 
     fun onEvent(event: PlanetListEvent) {
         when (event) {
-            is PlanetListEvent.UpdateName ->
+            is PlanetListEvent.UpdateName -> {
                 _state.update { it.copy(filterName = event.name) }
-            PlanetListEvent.Search -> loadPlanets()
+                filtrar()
+            }
         }
+    }
+
+    private fun filtrar() {
+        val nombre = _state.value.filterName.trim().lowercase()
+        val filtrados = _state.value.planets.filter { planet ->
+            nombre.isEmpty() || planet.name.contains(nombre, true)
+        }
+        _state.update { it.copy(planetsFiltradas = filtrados) }
     }
 
     private fun loadPlanets() {
         viewModelScope.launch {
-            val current = _state.value
-            getPlanetsUseCase(
-                name = current.filterName.takeIf { it.isNotBlank() }
-            ).collect { result: Resource<List<Planet>> ->
+            getPlanetsUseCase().collect { result: Resource<List<Planet>> ->
                 when (result) {
                     is Resource.Loading<*> -> _state.update { it.copy(isLoading = true) }
-                    is Resource.Success<*> -> _state.update {
-                        it.copy(isLoading = false, planets = result.data ?: emptyList())
+                    is Resource.Success<*> -> {
+                        _state.update {
+                            it.copy(isLoading = false, planets = result.data ?: emptyList())
+                        }
+                        filtrar()
                     }
                     is Resource.Error<*> -> _state.update {
                         it.copy(isLoading = false, error = result.message)
