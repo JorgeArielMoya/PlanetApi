@@ -1,6 +1,6 @@
 package edu.ucne.planetapi.data.remote.remotedatasource
 
-import android.net.http.HttpException
+import retrofit2.HttpException
 import edu.ucne.planetapi.data.remote.DragonBallApi
 import edu.ucne.planetapi.data.remote.dto.PlanetDto
 import edu.ucne.planetapi.data.remote.dto.PlanetResponseDto
