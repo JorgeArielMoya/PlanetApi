@@ -53,7 +53,6 @@ class CharacterListViewModel @Inject constructor(
         _state.update { it.copy(charactersFiltrados = filtrados) }
     }
 
-
     private fun loadCharacters() {
         viewModelScope.launch {
             getCharactersUseCase().collect { result: Resource<List<Character>> ->
