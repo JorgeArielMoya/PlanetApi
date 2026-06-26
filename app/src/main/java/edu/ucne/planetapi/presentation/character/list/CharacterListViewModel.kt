@@ -30,16 +30,29 @@ class CharacterListViewModel @Inject constructor(
                 _state.update { it.copy(filterName = event.name) }
                 filtrar()
             }
+            is CharacterListEvent.UpdateRace -> {
+                _state.update { it.copy(filterRace = event.race) }
+                filtrar()
+            }
+            is CharacterListEvent.UpdateGender -> {
+                _state.update { it.copy(filterGender = event.gender) }
+                filtrar()
+            }
         }
     }
 
     private fun filtrar() {
         val nombre = _state.value.filterName.trim().lowercase()
-        val filtrados = _state.value.characters.filter { character ->
-            nombre.isEmpty() || character.name.contains(nombre, true)
+        val raza = _state.value.filterRace.trim().lowercase()
+        val genero = _state.value.filterGender.trim().lowercase()
+        val filtrados = _state.value.characters.filter { personaje ->
+            (nombre.isEmpty() || personaje.name.contains(nombre, true)) &&
+                    (raza.isEmpty() || personaje.race.contains(raza, true)) &&
+                    (genero.isEmpty() || personaje.gender.contains(genero, true))
         }
         _state.update { it.copy(charactersFiltrados = filtrados) }
     }
+
 
     private fun loadCharacters() {
         viewModelScope.launch {
