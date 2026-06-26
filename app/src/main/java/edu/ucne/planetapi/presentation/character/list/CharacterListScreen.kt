@@ -1,6 +1,7 @@
 package edu.ucne.planetapi.presentation.character.list
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -84,6 +85,29 @@ fun CharacterListBodyScreen(
                     .padding(16.dp),
                 singleLine = true
             )
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                OutlinedTextField(
+                    value = state.filterRace,
+                    onValueChange = { onEvent(CharacterListEvent.UpdateRace(it)) },
+                    label = { Text("Raza") },
+                    modifier = Modifier.weight(1f),
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = state.filterGender,
+                    onValueChange = { onEvent(CharacterListEvent.UpdateGender(it)) },
+                    label = { Text("Género") },
+                    modifier = Modifier.weight(1f),
+                    singleLine = true
+                )
+            }
 
             if (state.isLoading) {
                 CircularProgressIndicator(
