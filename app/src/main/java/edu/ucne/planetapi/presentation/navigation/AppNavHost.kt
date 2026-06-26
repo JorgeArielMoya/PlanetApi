@@ -5,8 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import edu.ucne.planetapi.presentation.detail.PlanetDetailScreen
-import edu.ucne.planetapi.presentation.list.PlanetListScreen
+import edu.ucne.planetapi.presentation.planet.detail.PlanetDetailScreen
+import edu.ucne.planetapi.presentation.planet.list.PlanetListScreen
 
 @Composable
 fun AppNavHost(
