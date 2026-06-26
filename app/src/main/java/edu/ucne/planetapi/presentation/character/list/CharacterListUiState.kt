@@ -7,5 +7,7 @@ data class CharacterListUiState(
     val characters: List<Character> = emptyList(),
     val charactersFiltrados: List<Character> = emptyList(),
     val error: String? = null,
-    val filterName: String = ""
+    val filterName: String = "",
+    val filterRace: String = "",
+    val filterGender: String = ""
 )
