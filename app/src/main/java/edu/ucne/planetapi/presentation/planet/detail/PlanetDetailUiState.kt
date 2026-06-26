@@ -1,4 +1,4 @@
-package edu.ucne.planetapi.presentation.planet.list.detail
+package edu.ucne.planetapi.presentation.planet.detail
 
 import edu.ucne.planetapi.domain.planet.model.Planet
 
