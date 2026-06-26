@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import edu.ucne.planetapi.presentation.character.detail.CharacterDetailScreen
+import edu.ucne.planetapi.presentation.character.list.CharacterListScreen
 import edu.ucne.planetapi.presentation.planet.detail.PlanetDetailScreen
 import edu.ucne.planetapi.presentation.planet.list.PlanetListScreen
 
@@ -14,20 +16,30 @@ fun AppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.ListScreen
+        startDestination = Screen.PlanetList
     ) {
-        composable<Screen.ListScreen> {
+        composable<Screen.PlanetList> {
             PlanetListScreen(
                 onPlanetClick = { id ->
-                    navController.navigate(Screen.Detail(id))
+                    navController.navigate(Screen.PlanetDetail(id))
                 }
             )
         }
-        composable<Screen.Detail> {
+        composable<Screen.PlanetDetail> {
             PlanetDetailScreen(
-                onBack = {
-                    navController.navigateUp()
+                onBack = { navController.navigateUp() }
+            )
+        }
+        composable<Screen.CharacterList> {
+            CharacterListScreen(
+                onCharacterClick = { id ->
+                    navController.navigate(Screen.CharacterDetail(id))
                 }
+            )
+        }
+        composable<Screen.CharacterDetail> {
+            CharacterDetailScreen(
+                onBack = { navController.navigateUp() }
             )
         }
     }
