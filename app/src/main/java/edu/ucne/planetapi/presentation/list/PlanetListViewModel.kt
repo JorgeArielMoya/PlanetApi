@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.planetapi.data.remote.Resource
-import edu.ucne.planetapi.domain.model.Planet
-import edu.ucne.planetapi.domain.usecase.GetPlanetsUseCase
+import edu.ucne.planetapi.domain.planet.model.Planet
+import edu.ucne.planetapi.domain.planet.usecase.GetPlanetsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

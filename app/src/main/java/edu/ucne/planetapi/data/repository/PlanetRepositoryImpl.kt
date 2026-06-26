@@ -2,8 +2,8 @@ package edu.ucne.planetapi.data.repository
 
 import edu.ucne.planetapi.data.remote.Resource
 import edu.ucne.planetapi.data.remote.remotedatasource.PlanetRemoteDataSource
-import edu.ucne.planetapi.domain.model.Planet
-import edu.ucne.planetapi.domain.repository.PlanetRepository
+import edu.ucne.planetapi.domain.planet.model.Planet
+import edu.ucne.planetapi.domain.planet.repository.PlanetRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

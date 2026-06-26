@@ -1,6 +1,6 @@
 package edu.ucne.planetapi.data.remote.dto
 
-import edu.ucne.planetapi.domain.model.Planet
+import edu.ucne.planetapi.domain.planet.model.Planet
 
 data class PlanetResponseDto(
     val items: List<PlanetDto>

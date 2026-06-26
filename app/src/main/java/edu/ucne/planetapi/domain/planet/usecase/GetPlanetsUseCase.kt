@@ -1,6 +1,6 @@
-package edu.ucne.planetapi.domain.usecase
+package edu.ucne.planetapi.domain.planet.usecase
 
-import edu.ucne.planetapi.domain.repository.PlanetRepository
+import edu.ucne.planetapi.domain.planet.repository.PlanetRepository
 import jakarta.inject.Inject
 
 class GetPlanetsUseCase @Inject constructor(

@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
-import edu.ucne.planetapi.domain.model.Planet
+import edu.ucne.planetapi.domain.planet.model.Planet
 
 @Composable
 fun PlanetListScreen(

@@ -1,6 +1,6 @@
 package edu.ucne.planetapi.presentation.detail
 
-import edu.ucne.planetapi.domain.model.Planet
+import edu.ucne.planetapi.domain.planet.model.Planet
 
 data class PlanetDetailUiState(
     val isLoading: Boolean = false,

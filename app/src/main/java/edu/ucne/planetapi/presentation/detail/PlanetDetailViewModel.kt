@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.planetapi.data.remote.Resource
-import edu.ucne.planetapi.domain.model.Planet
-import edu.ucne.planetapi.domain.usecase.GetPlanetDetailUseCase
+import edu.ucne.planetapi.domain.planet.model.Planet
+import edu.ucne.planetapi.domain.planet.usecase.GetPlanetDetailUseCase
 import edu.ucne.planetapi.presentation.navigation.Screen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
