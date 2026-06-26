@@ -25,7 +25,7 @@ class PlanetDetailViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     init {
-        val args = savedStateHandle.toRoute<Screen.Detail>()
+        val args = savedStateHandle.toRoute<Screen.PlanetDetail>()
         loadPlanet(args.id)
     }
 
