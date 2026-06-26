@@ -13,10 +13,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -34,13 +38,15 @@ import edu.ucne.planetapi.domain.character.model.Character
 @Composable
 fun CharacterListScreen(
     viewModel: CharacterListViewModel = hiltViewModel(),
-    onCharacterClick: (Int) -> Unit
+    onCharacterClick: (Int) -> Unit,
+    onDrawer: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CharacterListBodyScreen(
         state = state,
         onEvent = viewModel::onEvent,
-        onCharacterClick = onCharacterClick
+        onCharacterClick = onCharacterClick,
+        onDrawer = onDrawer
     )
 }
 
@@ -49,12 +55,18 @@ fun CharacterListScreen(
 fun CharacterListBodyScreen(
     state: CharacterListUiState,
     onEvent: (CharacterListEvent) -> Unit,
-    onCharacterClick: (Int) -> Unit
+    onCharacterClick: (Int) -> Unit,
+    onDrawer: () -> Unit
 ) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Personajes Dragon Ball") }
+                title = { Text("Personajes Dragon Ball") },
+                navigationIcon = {
+                    IconButton(onClick = onDrawer) {
+                        Icon(Icons.Default.Menu, contentDescription = "Abrir menú")
+                    }
+                }
             )
         }
     ) { padding ->
